@@ -1,8 +1,11 @@
 import btnCallModal from "./modules/btn_call";
 import sliderBenefit from "./modules/sliderBenefit";
-import sliderServises from "./modules/sliderServises";
-
+//import sliderServices from "./modules/sliderServices";
+import btnServicesModal from "./modules/btn_services";
+import timerAction from "./modules/timerAction";
 
 btnCallModal();
 sliderBenefit();
-sliderServises();
+//sliderServices(startSlider(timeInterval));
+btnServicesModal();
+timerAction("25 november 2021");

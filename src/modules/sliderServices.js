@@ -1,18 +1,26 @@
-const sliderServises = () => {
-    const row = document.querySelectorAll('.row');
+const sliderServices = () => {
+
+    /*const row = document.querySelector(".row");
     const slides = document.querySelectorAll(".col-md-12");
     const serviceBlock = document.querySelector(".service-block");
     const servicesArrows = document.querySelectorAll(".services-arrows");
+    const servicesArrowsLeft = document.querySelector(".services__arrow--left");
+    const servicesArrowsRight = document.querySelector(".services__arrow--right");*/
+
+    const row = document.querySelector(".row");
+    const slides = row.querySelectorAll(".col-md-12");
+    const serviceBlock = document.querySelector(".service-block");
+    const servicesArrows = row.querySelectorAll(".services-arrows");
+    const servicesArrowsLeft = document.querySelector(".services__arrow--left");
+    const servicesArrowsRight = document.querySelector(".services__arrow--right");
 
     let timeInterval = 2000;
     let currentSlide = 0;
     let interval;
 
-
-
     const nextSlide = (elems, index, strClass) => {
         elems[index].classList.add(strClass);
-    }
+    };
     const prevSlide = (elems, index, strClass) => {
         elems[index].classList.remove(strClass);
     };
@@ -25,8 +33,7 @@ const sliderServises = () => {
     };
 
     const autoslide = () => {
-
-        prevSlide(slides, currentSlide, "col-md-12-active");
+        prevSlide(slides, currentSlide, "col-md-12");
         prevSlide(servicesArrows, currentSlide, "services-arrows-active");
         currentSlide++;
 
@@ -34,24 +41,23 @@ const sliderServises = () => {
             currentSlide = 0;
         }
 
-        nextSlide(slides, currentSlide, "col-md-12-active");
+        nextSlide(slides, currentSlide, "col-md-12");
         nextSlide(servicesArrows, currentSlide, "services-arrows-active");
-    }
+    };
 
     slides.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log(e.target);
 
         if (!e.target.matches(".servicesArrows")) {
             return;
         }
 
-        prevSlide(slides, currentSlide, "col-md-12-active");
+        prevSlide(serviceBlock, currentSlide[2], "service-block-active");
         prevSlide(servicesArrows, currentSlide, "services-arrows-active");
 
-        if (e.target.matches(".services__arrow--left")) {
+        if (e.target.matches(servicesArrowsLeft)) {
             currentSlide--;
-        } else if (e.target.matches(".services__arrow--right")) {
+        } else if (e.target.matches(servicesArrowsRight)) {
             currentSlide++;
         }
 
@@ -62,8 +68,10 @@ const sliderServises = () => {
             currentSlide = slides.length - 2;
         }
 
-        nextSlide(slides, currentSlide, "col-md-12-active");
+        nextSlide(serviceBlock, currentSlide[2], "service-block-active");
         nextSlide(servicesArrows, currentSlide, "services-arrows-active");
+
+
     });
 
     serviceBlock.addEventListener("mouseenter", (e) => {
@@ -77,7 +85,6 @@ const sliderServises = () => {
         }
     }, true);
 
-    startSlider(timeInterval);
 };
 
-export default sliderServises;
+export default sliderServices;
