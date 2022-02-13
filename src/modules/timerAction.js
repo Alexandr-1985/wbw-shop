@@ -42,17 +42,23 @@ const timerAction = (deadLine) => {
         timerMinutes.innerHTML = "Minutes: <br\/>" + getZero(getTime.minutes);
         timerSeconds.innerHTML = "Seconds: <br\/>" + getZero(getTime.seconds);
 
+        function getStyle(str, size = "18px", weight = "900", color = "red") {
+            str.style.fontSize = size;
+            str.style.fontWeight = weight;
+            str.style.color = color;
+        }
+
         if (getTime.timeRemaining <= 0) {
             //расчет до 0
             clearInterval(updateClock);
-            timerDays.textContent = "00";
-            timerDays.style.color = "red";
-            timerHours.textContent = "00";
-            timerHours.style.color = "red";
-            timerMinutes.textContent = "00";
-            timerMinutes.style.color = "red";
-            timerSeconds.textContent = "00";
-            timerSeconds.style.color = "red";
+            timerDays.innerHTML = "Days: <br\/>" + "00";
+            getStyle(timerDays);
+            timerHours.innerHTML = "Hours: <br\/>" + "00";
+            getStyle(timerHours);
+            timerMinutes.innerHTML = "Minutes: <br\/>" + "00";
+            getStyle(timerMinutes);
+            timerSeconds.innerHTML = "Seconds: <br\/>" + "00";
+            getStyle(timerSeconds);
         }
     }, 1000);
 };
