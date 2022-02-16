@@ -10,5 +10,5 @@ btnCallModal();
 sliderBenefit();
 //sliderServices(startSlider(timeInterval));
 btnServicesModal();
-timerAction("25 november 2021");
+timerAction("25 mart 2022");
 sertificats();

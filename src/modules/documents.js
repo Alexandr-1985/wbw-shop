@@ -1,6 +1,6 @@
 const sertificats = () => {
     const sertificateDocuments = document.querySelectorAll(".sertificate-document");
-    const overlay = document.querySelector('.document-overlay');
+    const overlay = document.querySelector('.overlay');
 
     let div;
     sertificateDocuments.forEach(sertificateDocument => {
@@ -12,9 +12,7 @@ const sertificats = () => {
             div.innerHTML = `<img src = "${searchAdress}" width="450px"></img>`;
 
             overlay.style.cssText = `
-                                    position: fixed;
-                                    opacity: 1;
-                                    z-index: 100;`
+                                    display: block;`
 
             div.style.cssText = `
                                  position: fixed;
@@ -24,17 +22,19 @@ const sertificats = () => {
                                  z-index: 9999;`
 
             document.body.append(div);
-            //overlay.style.display = "block";
-
-
         });
     });
+
+    window.addEventListener('keydown', evt => {
+        if (evt.key === 'Escape') {
+            overlay.style.display = "none";
+            div.remove();
+        }
+    });
+
     overlay.addEventListener("click", () => {
 
-        //div.style.cssText = `z-index: -1;`
-
-        /* overlay.style.cssText = `opacity: 0;`
-         console.log('dfg');*/
+        overlay.style.display = "none";
         div.remove();
     });
 };

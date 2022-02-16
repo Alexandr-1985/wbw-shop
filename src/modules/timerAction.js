@@ -1,9 +1,13 @@
 const timerAction = (deadLine) => {
 
     const timerDays = document.querySelector(".count_1");
+    const spanDays = timerDays.querySelector("span");
     const timerHours = document.querySelector(".count_2");
+    const spanHours = timerHours.querySelector("span");
     const timerMinutes = document.querySelector(".count_3");
+    const spanMinutes = timerMinutes.querySelector("span");
     const timerSeconds = document.querySelector(".count_4");
+    const spanSeconds = timerSeconds.querySelector("span");
 
     const getTimeRemaining = () => {
         let dateStop = new Date(deadLine).getTime();
@@ -37,10 +41,15 @@ const timerAction = (deadLine) => {
         let getTime = getTimeRemaining();
 
         //заносим время в span
-        timerDays.innerHTML = "Days: <br\/>" + getZero(getTime.days);
+        /*timerDays.innerHTML = "Days: <br\/>" + getZero(getTime.days);
         timerHours.innerHTML = "Hours: <br\/>" + getZero(getTime.hours);
         timerMinutes.innerHTML = "Minutes: <br\/>" + getZero(getTime.minutes);
         timerSeconds.innerHTML = "Seconds: <br\/>" + getZero(getTime.seconds);
+        */
+        spanDays.innerHTML = getZero(getTime.days);
+        spanHours.innerHTML = getZero(getTime.hours);
+        spanMinutes.innerHTML = getZero(getTime.minutes);
+        spanSeconds.innerHTML = getZero(getTime.seconds);
 
         function getStyle(str, size = "18px", weight = "900", color = "red") {
             str.style.fontSize = size;
@@ -51,13 +60,13 @@ const timerAction = (deadLine) => {
         if (getTime.timeRemaining <= 0) {
             //расчет до 0
             clearInterval(updateClock);
-            timerDays.innerHTML = "Days: <br\/>" + "00";
+            spanDays.innerHTML = "00";
             getStyle(timerDays);
-            timerHours.innerHTML = "Hours: <br\/>" + "00";
+            spanHours.innerHTML = "00";
             getStyle(timerHours);
-            timerMinutes.innerHTML = "Minutes: <br\/>" + "00";
+            spanMinutes.innerHTML = "00";
             getStyle(timerMinutes);
-            timerSeconds.innerHTML = "Seconds: <br\/>" + "00";
+            spanSeconds.innerHTML = "00";
             getStyle(timerSeconds);
         }
     }, 1000);
