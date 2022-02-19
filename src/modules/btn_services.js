@@ -1,5 +1,6 @@
 import animate from "./animate";
 
+
 const btnServicesModal = () => {
     const button = document.querySelector(".service-button");
     const servicesModal = document.querySelector(".services-modal");

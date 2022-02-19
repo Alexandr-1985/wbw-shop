@@ -1,14 +1,20 @@
 import btnCallModal from "./modules/btn_call";
 import sliderBenefit from "./modules/sliderBenefit";
-//import sliderServices from "./modules/sliderServices";
+import sliderServices from "./modules/sliderServices";
 import btnServicesModal from "./modules/btn_services";
 import timerAction from "./modules/timerAction";
 import sertificats from "./modules/documents";
-
+import validateForm from "./modules/validateForm";
+import calc from "./modules/calcPay";
+import menu from "./modules/menu";
 
 btnCallModal();
 sliderBenefit();
 //sliderServices(startSlider(timeInterval));
+sliderServices();
 btnServicesModal();
 timerAction("25 mart 2022");
 sertificats();
+validateForm();
+menu();
+calc();
