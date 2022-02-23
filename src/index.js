@@ -7,6 +7,7 @@ import sertificats from "./modules/documents";
 import validateForm from "./modules/validateForm";
 import calc from "./modules/calcPay";
 import menu from "./modules/menu";
+import sendForm from "./modules/sendForm";
 
 btnCallModal();
 sliderBenefit();
@@ -18,3 +19,4 @@ sertificats();
 validateForm();
 menu();
 calc();
+sendForm();

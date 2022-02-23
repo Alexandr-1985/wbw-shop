@@ -1,11 +1,5 @@
-const sendForm = ({ formId, someElem = [] }) => {
-    const form = document.getElementById(formId);
-    const boxModal = document.querySelector(".box-modal");
-    const application = document.getElementById("application");
-    const order = document.getElementById("order");
-    const callback = document.getElementById("callback");
-    const fancyboxOuter = document.querySelectorAll(".fancybox-outer");
-    const boxModalBody = document.querySelectorAll(".box-modal_body");
+const sendForm = (formID) => {
+    const form = document.getElementById(formID);
 
     //оповещение о загрузке, о данных и отправки
     const statusBlock = document.querySelector(".help-block");
@@ -52,27 +46,40 @@ const sendForm = ({ formId, someElem = [] }) => {
                 setTimeout(() => {
                     statusBlock.textContent = "";
                 }, 2000);
-                setTimeout(() => {
-                    boxModalBody.style.display = "none";
-                }, 2000);
             })
             .catch(error => {
                 statusBlock.textContent = errorText;
             });
     };
 
-    try {
-        if (!form) {
-            throw new Error("Верните форму на место");
-        }
+    form.addEventListener("submit", event => {
+        event.preventDefault();
 
-        form.addEventListener("submit", event => {
-            event.preventDefault();
+        submitForm();
+    });
 
-            submitForm();
-        });
-    } catch (error) {
-        console.log(error.message);
-    }
+
+    /*
+        try {
+            if (!form) {
+                throw new Error("Верните форму на место");
+            }
+
+            form.addEventListener("submit", event => {
+                event.preventDefault();
+
+                submitForm();
+            });
+        } catch (error) {
+            console.log(error.message);
+        }*/
 };
-export default sendForm;
+
+sendForm("form1");
+sendForm("form2");
+sendForm("form3");
+sendForm("form4");
+sendForm("form5");
+sendForm("form6");
+sendForm("form7");
+//export default sendForm;

@@ -1,21 +1,18 @@
 import animate from "./animate";
 const calc = () => {
-    const formGroup = document.querySelectorAll(".form-group");
     const type = document.getElementById("calc-type");
     const typeMaterial = document.getElementById("calc-type-material");
     const inputSquare = document.getElementById("calc-input");
     const total = document.getElementById("calc-total");
 
-    console.log(formGroup);
-    console.log(type);
-    console.log(typeMaterial);
-    console.log(inputSquare);
-    console.log(total);
 
     const countCalc = () => {
+
         let calcTypeValue = +type.options[type.selectedIndex].value;
-        let calcTypeMaterial = +typeMaterial[typeMaterial.selectedIndex].value;
-        const calcInputSquare = inputSquare.value;
+        let calcTypeMaterial = +typeMaterial.options[typeMaterial.selectedIndex].value;
+        let calcInputSquare = inputSquare.value;
+
+        let totalValue = 0;
 
         if (!calcTypeValue && !calcTypeMaterial) {
             type.value = " ";
@@ -23,8 +20,10 @@ const calc = () => {
             inputSquare.value = " ";
         }
         //площадь * value типа балкона * value типа материала
-        if (calcTypeValue.value && calcTypeMaterial.value && calcInputSquare.value) {
+        if (calcInputSquare) {
             totalValue = +calcInputSquare * calcTypeValue * calcTypeMaterial;
+            total.value = Math.random(totalValue);
+
         } else {
             totalValue = 0;
         }
@@ -45,7 +44,7 @@ const calc = () => {
     };
 
     inputSquare.addEventListener("input", e => {
-        console.log(e.target);
+
         if (e.target === type ||
             e.target === typeMaterial ||
             e.target === inputSquare
@@ -55,5 +54,6 @@ const calc = () => {
     });
 
 };
+
 
 export default calc;
