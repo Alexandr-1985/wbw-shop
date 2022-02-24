@@ -43,7 +43,7 @@ const calc = () => {
         });
     };
 
-    inputSquare.addEventListener("input", e => {
+    window.addEventListener("input", e => {
 
         if (e.target === type ||
             e.target === typeMaterial ||

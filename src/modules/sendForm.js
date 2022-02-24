@@ -58,28 +58,19 @@ const sendForm = (formID) => {
         submitForm();
     });
 
+    try {
+        if (!form) {
+            throw new Error("Верните форму на место");
+        }
 
-    /*
-        try {
-            if (!form) {
-                throw new Error("Верните форму на место");
-            }
+        form.addEventListener("submit", event => {
+            event.preventDefault();
 
-            form.addEventListener("submit", event => {
-                event.preventDefault();
-
-                submitForm();
-            });
-        } catch (error) {
-            console.log(error.message);
-        }*/
+            submitForm();
+        });
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
-sendForm("form1");
-sendForm("form2");
-sendForm("form3");
-sendForm("form4");
-sendForm("form5");
-sendForm("form6");
-sendForm("form7");
-//export default sendForm;
+export default sendForm;

@@ -4,9 +4,9 @@ Swiper.use([Autoplay]);
 //Swiper.use([Navigation]);
 
 const sliderServices = () => {
-    const arrow = document.querySelector(".swiper-button-next");
+    //  const arrow = document.querySelector(".swiper-button-next");
 
-    arrow.style.position = "";
+    //  arrow.style.position = "";
 
     const mySwiper = new Swiper(".mySwiper", {
         slidesPerView: 2,
