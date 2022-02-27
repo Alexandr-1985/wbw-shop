@@ -25,7 +25,7 @@ const validateForm = () => {
                         targer.style.border = "2px solid red";
                     } else { target.style.placeholder = "2px solid green"; }
                 } else if (
-                    target.placeholder === "ваш телефон" || targer.placeholder === "Контактный телефон") {
+                    target.placeholder === "Ваш телефон" || targer.placeholder === "Контактный телефон") {
                     target.value = targe.value.trim().replace(/[^\+\d\()\-]/gi, "");
                     if (target.value.length >= 17) {
                         target.style.border = "2px solid red";
@@ -38,7 +38,7 @@ const validateForm = () => {
                 }
 
             });
-        })
+        });
 
     };
     checkData();
