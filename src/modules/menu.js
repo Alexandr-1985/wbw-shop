@@ -1,70 +1,33 @@
+"use strict";
 const menu = () => {
-    const menu = document.querySelectorAll("menu");
-    const main = document.querySelectorAll("main");
-    const body = document.querySelectorAll("body");
-
-    //фуи для открытия и закрытия меню
-    const handleMenu = () => {
-        menu.classList.toggle(".navbar-nav");
-    };
-    console.log(handleMenu);
-
-    const smoothScroll = a => {
-        let blockId;
-        blockId = a.getAttribute("img");
-        //плавное передвижение по экрану
-        document.querySelector(blockId).scrollIntoView({
-            behavior: "smooth",
-            block: "end",
-        });
-    };
-    /*
-        body.addEventListener("click", e => {
-            const target = e.target;
-            if (target.closest("menu")) {
-                handleMenu();
-            } else if (target.closest('img')) {
-                e.preventDefault();
-                //console.log(target);
-                smoothScroll(target.closest('img'));
-            } else if (menu.classList.contains("navbar-collapse") && target !== menu) {
-                handleMenu();
-            }
-        });
-
-        menu.addEventListener("click", e => {
-            const target = e.target;
-            if (target.closest(".close-btn")) {
-                e.preventDefault();
-                handleMenu();
-            } else if (target.closest("a")) {
-                e.preventDefault();
-                handleMenu();
-                smoothScroll(target);
-            }
-        });*/
-
-    // listner menu on all body 
-    body.addEventListener("click", (e) => {
-        const target = e.target;
-        console.log(target);
-        if (target.closest("menu")) {
-            handleMenu();
-        } else if (
-            target.closest('a[href=""]') &&
-            !target.closest("menu")
-        ) {
-            e.preventDefault();
-            console.log(target);
-            smoothScroll(target.closest('.smooth-scroll'));
-        } else if (target.closest("a") && target.closest("menu")) {
-            e.preventDefault();
-            handleMenu();
-            smoothScroll(target);
-        } else if (menu.classList.contains("navbar-collapse--active") && target !== menu) {
-            handleMenu();
-        }
+  const orderCall = document.querySelector(".button"),
+    headerModal = document.querySelector(".header-modal"),
+    overlay = document.querySelector(".overlay"),
+    headerModalClose = document.querySelector(".header-modal__close"),
+    servicesModal = document.querySelector(".services-modal"),
+    servicesModalClose = document.querySelector(".services-modal__close"),
+    serviceButtons = document.querySelectorAll(".service-button");
+  serviceButtons.forEach((serviceButton) => {
+    serviceButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      overlay.style.display = "block";
+      servicesModal.style.display = "block";
     });
+  });
+  servicesModalClose.addEventListener("click", (e) => {
+    e.preventDefault();
+    overlay.style.display = "none";
+    servicesModal.style.display = "none";
+  });
+  orderCall.addEventListener("click", (e) => {
+    e.preventDefault();
+    overlay.style.display = "block";
+    headerModal.style.display = "block";
+  });
+  headerModalClose.addEventListener("click", (e) => {
+    e.preventDefault();
+    overlay.style.display = "none";
+    headerModal.style.display = "none";
+  });
 };
-
-//export default menu;
+export default menu;

@@ -25,3 +25,8 @@
     height: 100%;
     object-fit: cover;
 }
+
+.benefits-wrap .swiper .swiper-pagination {
+    display: flex;
+    justify-content: left;
+}

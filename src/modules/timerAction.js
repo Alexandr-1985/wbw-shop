@@ -1,5 +1,5 @@
+"use strict";
 const timerAction = (deadLine) => {
-
     const timerDays = document.querySelector(".count_1");
     const spanDays = timerDays.querySelector("span");
     const timerHours = document.querySelector(".count_2");
@@ -42,10 +42,10 @@ const timerAction = (deadLine) => {
 
         //заносим время в span
         /*timerDays.innerHTML = "Days: <br\/>" + getZero(getTime.days);
-        timerHours.innerHTML = "Hours: <br\/>" + getZero(getTime.hours);
-        timerMinutes.innerHTML = "Minutes: <br\/>" + getZero(getTime.minutes);
-        timerSeconds.innerHTML = "Seconds: <br\/>" + getZero(getTime.seconds);
-        */
+            timerHours.innerHTML = "Hours: <br\/>" + getZero(getTime.hours);
+            timerMinutes.innerHTML = "Minutes: <br\/>" + getZero(getTime.minutes);
+            timerSeconds.innerHTML = "Seconds: <br\/>" + getZero(getTime.seconds);
+            */
         spanDays.innerHTML = getZero(getTime.days);
         spanHours.innerHTML = getZero(getTime.hours);
         spanMinutes.innerHTML = getZero(getTime.minutes);
@@ -71,6 +71,5 @@ const timerAction = (deadLine) => {
         }
     }, 1000);
 };
-
 
 export default timerAction;

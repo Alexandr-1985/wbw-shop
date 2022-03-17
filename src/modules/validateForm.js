@@ -1,3 +1,7 @@
+"use strict";
+
+//import maskPhone from "./mask";
+
 const validateForm = () => {
 
     const getBtn = bool => {
@@ -9,6 +13,7 @@ const validateForm = () => {
     };
 
     const checkData = () => {
+        //debugger;
         const form = document.querySelectorAll("form");
         const input = document.querySelectorAll("input");
 
@@ -16,17 +21,21 @@ const validateForm = () => {
             item.required = true;
         });
         form.forEach(item => {
-            item.addEventListener(".focusout", e => {
+            item.addEventListener("input", e => {
+
                 let target = e.target;
-                if (target.placeholder === "Ваше имя") {
-                    target.value = target.value.trim().replace(/[^\s\d\a-zа-я]/gi, "");
-                    if (target.value.search(/[^A-Za-zА-Яа-я]/)) {
+                if (target.placeholder === "ваше имя") {
+                    //debugger;
+                    target.value = target.value.trim().replace(/[^\w+\А-Яа-яЁё]/gi, "");
+                    target.style.placeholder = "2px solid green";
+                    if (target.value.search(/[^\d\s]/)) {
                         target.value = "";
-                        targer.style.border = "2px solid red";
+                        target.style.border = "2px solid red";
                     } else { target.style.placeholder = "2px solid green"; }
-                } else if (
-                    target.placeholder === "Ваш телефон" || targer.placeholder === "Контактный телефон") {
-                    target.value = targe.value.trim().replace(/[^\+\d\()\-]/gi, "");
+                }
+                if (
+                    target.placeholder === "ваш телефон" || target.placeholder === "контактный телефон") {
+                    target.value = target.value.trim().replace(/[^\+\d\(\d)\-]/gi, "");
                     if (target.value.length >= 17) {
                         target.style.border = "2px solid red";
                         getBtn(true);
@@ -36,12 +45,29 @@ const validateForm = () => {
                         getBtn(false);
                     }
                 }
-
             });
         });
-
     };
     checkData();
+
+    // const inputs = document.querySelectorAll("input");
+    // inputs.forEach((item) => {
+    //     item.addEventListener("input", (event) => {
+    //         const target = event.target;
+    //         if (
+    //             target.placeholder === "ваше имя"
+    //         ) {
+    //             target.value = target.value.replace(/[^А-Яа-яЁё\ ]/, "");
+    //             target.value = target.value
+    //                 .trim()
+    //                 .replace(/[^\s\da-zа-я]/gi, "")
+    //                 .replace(/\s+/g, " ");
+    //         } else if (target.placeholder === "контактный телефон") {
+    //             target.classList.add("form-phone");
+    //             maskPhone(".form-phone");
+    //         }
+    //     });
+    // });
 
 };
 

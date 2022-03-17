@@ -1,5 +1,5 @@
+"use strict";
 import animate from "./animate";
-
 const btnCallModal = () => {
     const button = document.querySelector(".button");
     const headerModal = document.querySelector(".header-modal");
@@ -29,21 +29,6 @@ const btnCallModal = () => {
     };
 
     const closeModal = () => {
-        /*    if (document.documentElement.offsetWidth >= MOBILE_WIDTH) {
-                animate({
-                    duration: 300,
-                    timing(timeFraction) {
-                        return timeFraction;
-                    },
-                    draw(progress) {
-                        getStyleDisplay("block");
-                        headerModal.style.opacity = 1 - progress;
-                        if (progress === 1) {
-                            getStyleDisplay("none");
-                        }
-                    },
-                });
-            }*/
         getStyleDisplay("none");
     };
 

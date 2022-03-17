@@ -1,13 +1,10 @@
-import Swiper, { Autoplay, Navigation } from "swiper";
-
+"use strict";
+import Swiper, { Autoplay, Navigation, Pagination } from "swiper";
 Swiper.use([Autoplay]);
 Swiper.use([Navigation]);
+Swiper.use([Pagination]);
 
-const sliderBenefit = () => {
-    //const arrow = document.querySelector(".swiper-button-next");
-
-    //arrow.style.position = "";
-
+const sliderBenefits = () => {
     const swiper = new Swiper(".swiper", {
         // Optional parameters
         slidesPerView: 3,
@@ -17,11 +14,15 @@ const sliderBenefit = () => {
             delay: 1500,
             disableOnInteraction: false,
         },
+        pagination: {
+            el: ".swiper-pagination",
+            dynamicBullets: true,
+        },
+        navigation: {
+            nextEl: ".benefits__arrow--right",
+            prevEl: ".benefits__arrow--left",
+        },
         breakpoints: {
-            200: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-            },
             576: {
                 slidesPerView: 2,
                 spaceBetween: 30,
@@ -31,12 +32,6 @@ const sliderBenefit = () => {
                 spaceBetween: 40,
             },
         },
-        // Navigation arrows
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
     });
 };
-
-export default sliderBenefit;
+export default sliderBenefits;
