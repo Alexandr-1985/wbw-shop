@@ -37,11 +37,11 @@ const validateForm = () => {
                     target.placeholder === "ваш телефон" || target.placeholder === "контактный телефон") {
                     target.value = target.value.trim().replace(/[^\+\d\(\d)\-]/gi, "");
                     if (target.value.length >= 17) {
-                        target.style.border = "2px solid red";
+                        target.style.placeholder = "2px solid red";
                         getBtn(true);
                     }
                     if (target.value.length <= 16) {
-                        target.style.border = "2px solid green";
+                        target.style.placeholder = "2px solid green";
                         getBtn(false);
                     }
                 }

@@ -3,6 +3,7 @@ import Swiper, { Autoplay, Navigation, Pagination } from "swiper";
 Swiper.use([Autoplay]);
 Swiper.use([Navigation]);
 Swiper.use([Pagination]);
+
 const sliderServices = () => {
     const swiper = new Swiper(".swiper-service", {
         // Optional parameters
